@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+      <h3>Laptop</h3>
+      <p>899.99 €</p>
+      <button onclick="addToCart('Laptop', 899.99)">Shto në Shportë</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Telefon" alt="Telefon">
+      <h3>Telefon</h3>
+      <p>599.99 €</p>
+      <button onclick="addToCart('Telefon', 599.99)">Shto në Shportë</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Earbuds" alt="Earbuds">
+      <h3>Earbuds</h3>
+      <p>49.99 €</p>
+      <button onclick="addToCart('Earbuds', 49.99)">Shto në Shportë</button>
+    </div>
+
+    <div class="product">
+      <img src="https://via.placeholder.com/150?text=Tablet" alt="Tablet">
+      <h3>Tablet</h3>
+      <p>349.99 €</p>
+      <button onclick="addToCart('Tablet', 349.99)">Shto në Shportë</button>
+    </div>
+  </div>
+
+  <!-- Butoni që hap faqen e re të shportës -->
+  <a href="shporta.html" class="view-cart">Shiko Shportën</a>
+
+  <script>
+    function addToCart(name, price) {
+      // Merr shportën nga localStorage ose krijon një të re
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart.push({ name, price });
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // Shfaq mesazhin
+      document.getElementById("message").classList.add("show");
+      setTimeout(() => {
+        document.getElementById("message").classList.remove("show");
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
